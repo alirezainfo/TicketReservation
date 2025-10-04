@@ -60,19 +60,20 @@ h1 {
 /* ===== Seats ===== */
 .seat {
   position: relative;
-  width: 100%;
+  width: 50px;
+  height: 50px;
   padding-top: 100%;
   border-radius: 50%;
   background: linear-gradient(145deg, #222, #111);
-  box-shadow: 2px 2px 8px #000 inset, -2px -2px 6px #444 inset;
+  box-shadow: 1px 1px 5px #000 inset, -1px -1px 4px #444 inset;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .seat.selected {
-  background: linear-gradient(145deg, #ffd700, #ffa500);
-  transform: scale(1.2);
-  box-shadow: 0 0 20px #ffd700, 0 0 30px #ffb700 inset;
+  background: linear-gradient(100deg, #ffd700, #ffa500);
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #ffd700, 0 0 10px #ffb700 inset;
 }
 
 .seat.occupied {

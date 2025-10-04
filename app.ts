@@ -59,14 +59,20 @@ class Seat extends Reservable{
 }
 
 class Cinema <T extends Reservable>{
-    private item:T[] = []
+    private items:T[] = []
 
     add(item:T):void{
-        this.item.push(item)
+        this.items.push(item)
+    }
+
+    render(container:HTMLDivElement):void{
+        this.items.forEach((item:any)=>{
+            if(item.getElement) container.appendChild(item.getElement())
+        })
     }
 }
 
-const cinemaDiv = document.getElementById('cinema')
+const cinemaDiv = document.getElementById('cinema') as HTMLDivElement
 const cinema = new Cinema<Seat>
 
 for (let i = 1; i <= 5; i++) {
@@ -75,3 +81,6 @@ for (let i = 1; i <= 5; i++) {
         cinema.add(seat)
     }
 }
+
+
+cinema.render(cinemaDiv)

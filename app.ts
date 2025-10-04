@@ -15,7 +15,7 @@ class Seat extends Reservable{
     private reserved:boolean = false
     private selected:boolean = false
 
-    constructor(){
+    constructor(public row:number,public number:number){
         super()
         this.element = document.createElement('div')
         this.element.classList.add('seat')
@@ -29,6 +29,15 @@ class Seat extends Reservable{
         this.UpdateUi()
     }
 
+
+    isSelected():boolean{
+        return this.selected;
+    }
+
+    getElement(){
+        return this.element;
+    }
+    
 
     UpdateUi():void{
         this.element.classList.remove('reserved','selected')
@@ -46,5 +55,23 @@ class Seat extends Reservable{
     }
     isreserve(): boolean {
         return this.reserved
+    }
+}
+
+class Cinema <T extends Reservable>{
+    private item:T[] = []
+
+    add(item:T):void{
+        this.item.push(item)
+    }
+}
+
+const cinemaDiv = document.getElementById('cinema')
+const cinema = new Cinema<Seat>
+
+for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= 8; j++) {
+        const seat = new Seat(i, j)
+        cinema.add(seat)
     }
 }

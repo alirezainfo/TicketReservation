@@ -50,6 +50,11 @@ class Cinema {
     add(item) {
         this.items.push(item);
     }
+    getSelectedSeats() {
+        return this.items.filter((item) => {
+            return typeof item.isSelected === 'function' && item.isSelected();
+        });
+    }
     render(container) {
         this.items.forEach((item) => {
             if (item.getElement)
@@ -59,6 +64,7 @@ class Cinema {
 }
 const cinemaDiv = document.getElementById('cinema');
 const cinema = new Cinema;
+const Ticket_price = 10000;
 for (let i = 1; i <= 5; i++) {
     for (let j = 1; j <= 8; j++) {
         const seat = new Seat(i, j);
@@ -66,3 +72,21 @@ for (let i = 1; i <= 5; i++) {
     }
 }
 cinema.render(cinemaDiv);
+const buyButton = document.getElementById('buyButton');
+buyButton.addEventListener("click", () => {
+    const selected = cinema.getSelectedSeats();
+    console.log('alireza');
+    if (selected.length === 0) {
+        alert('لطفا حداقل یک صندلی انتخاب کنید.');
+        return false;
+    }
+    const total = selected.length * Ticket_price;
+    const confirmed = confirm(`شما ${selected.length} انتخاب کرده اید. \n 
+        مبلغ قابل پرداخت ${total.toLocaleString()} است \n 
+        آیا میخواهید ادامه بدهید؟`);
+    if (confirmed) {
+        selected.forEach((seat) => {
+            seat.reserve();
+        });
+    }
+});

@@ -83,7 +83,7 @@ h1 {
 }
 
 /* Hover effect */
-.seat:hover:not(.occupied) {
+.seat:hover:not(.reserved) {
   transform: scale(1.1);
   box-shadow: 0 0 10px #ffd700, inset 0 0 5px #ffea00;
 }
@@ -112,6 +112,13 @@ button:hover {
   justify-content: center;
   flex-wrap: wrap;
   margin: 20px 0;
+}
+
+.reserved{
+  cursor: not-allowed;
+  background: #ff8c00;
+  transform: scale(1);
+  box-shadow: none;
 }
 
 /* ===== Invoice ===== */

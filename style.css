@@ -151,6 +151,17 @@ button:hover {
   color: #111;
 }
 
+ul{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+li{
+    display: flex;
+  justify-content: end; 
+}
 /* Footer */
 .invoice .footer {
   margin-top: 15px;
@@ -169,3 +180,23 @@ button:hover {
     max-width: 100%;
   }
 }
+
+
+  @media print {
+    body * {
+      visibility: hidden; /* همه‌ی المان‌ها پنهان */
+    }
+
+    #invoice, #invoice * {
+      visibility: visible; /* فقط فاکتور دیده بشه */
+    }
+
+    #invoice {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+

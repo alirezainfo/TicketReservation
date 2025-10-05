@@ -61,4 +61,8 @@ Manages a collection of seats:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/<repository>.git
+   https://github.com/alirezainfo/TicketReservation.git
+ 2.Run command in terminal:
+   ```bash
+   npx tsc -w
+   open index.html

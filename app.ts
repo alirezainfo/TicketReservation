@@ -147,3 +147,27 @@ buyButton.addEventListener("click",()=>{
 
     invoice.style.display = 'block'
 })
+
+document.getElementById('clearStorageButton')!.addEventListener('click',()=>{
+    localStorage.clear()
+    alert('اطلاعات شما پاک شد.')
+    location.reload()
+})
+
+document.getElementById('showSalesButton')!.addEventListener('click',()=>{
+    let count:number = 0
+    for (let i = 1; i <= 5; i++) {
+    for (let j = 1; j <= 8; j++) {
+        const key = `seat-${i}-${j}`
+        if(localStorage.getItem(key)==='reserved'){
+            count++
+        }
+    }
+}
+
+const total_price = count*Ticket_price
+alert(`میزان فروش شما تا الان ${total_price} است.
+    تعداد بلیط فروخته شده ${count} است.`)
+
+
+})

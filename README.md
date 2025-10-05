@@ -1,5 +1,5 @@
 
-![Cinema Seat Reservation Screenshot](screenshot.png)
+![Cinema Seat Reservation Screenshot](ts.png)
 
 # 🎬 Cinema Seat Reservation System
 
